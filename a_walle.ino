@@ -1,5 +1,16 @@
-//Task:
+/*Task: Control a simple robot for line following and
+ *      obstacle avoidance using an IR remote
+ */
+ 
+#include <IRremote.h>
+
 //*****Define Variables*****
+//IR Stuff
+const int irPin = 6;
+IRrecv irrecv(irPin);
+decode_results results;
+unsigned long irVal;
+
 //Motor Stuff
 const int dirA = 2;
 const int dirB = 4;
@@ -34,11 +45,34 @@ void setup() {
   pinMode(leftLDR, INPUT);
   pinMode(centerLDR, INPUT);
   pinMode(rightLDR, INPUT);
-  //Serial.begin(9600);
-  calibrate_LDR();
+  irrecv.enableIRIn();
+  Serial.begin(9600);
+  //calibrate_LDR();
 }
 
 //*****Main Program*****
 void loop() {
-  follow_line(30);
+  if (irrecv.decode(&results)) {
+    irVal = results.value;
+    Serial.println(irVal, HEX);
+
+    delay(50);
+    irrecv.resume(); // Receive the next value
+  }
+
+  if(irVal == 0xFFA25D){  //All stop
+    all_stop();
+  }else if(irVal == 0xFF9867){  //Calibrate LDRs
+    irVal = 0;
+    Serial.println(irVal);
+    calibrate_LDR();
+  }else if(irVal == 0xFF30CF){  //Follow line
+    follow_line(30);    
+  }else if(irVal == 0xFF18E7){  //Turn in circle
+    circle_turn(60);    
+  }/*else if(results.value == 0xFF7A85){  //Avoid obstacles
+      
+  }*/else if(irVal == 0xFF02FD){
+    dead_ahead(60);  
+  }
 }

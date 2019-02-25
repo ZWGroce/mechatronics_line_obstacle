@@ -15,17 +15,25 @@ void follow_line(int spd){
   Serial.print(centerVal); Serial.print("\t");
   Serial.println(rightVal);
 
-  if(leftVal > 5 && leftVal <= 15){
+  if(leftVal > 5 && leftVal <= 10){
     Serial.println("LEFT, SOFT");
     turn_left(spd, soft);
     last = leftTurn;
+  }else if(leftVal > 10 && leftVal <= 15){
+    Serial.println("LEFT, MEDIUM");
+    turn_left(spd, medium);
+    last = leftTurn; 
   }else if(leftVal > 15){
     Serial.println("LEFT, HARD");
     turn_left(spd, hard);
     last = leftTurn; 
-  }else if(rightVal > 5 && rightVal <= 15){
+  }else if(rightVal > 5 && rightVal <= 10){
     Serial.println("RIGHT, SOFT");
     turn_right(spd, soft);
+    last = rightTurn;
+  }else if(rightVal > 10 && rightVal <= 15){
+    Serial.println("RIGHT, MEDIUM");
+    turn_right(spd, medium);
     last = rightTurn;
   }else if(rightVal > 15){
     Serial.println("RIGHT, HARD");
@@ -33,8 +41,8 @@ void follow_line(int spd){
     last = rightTurn;
   }else if(centerVal > 10){
     Serial.println("Go STRAIGHT!");
-    dead_ahead(spd); 
-  }else if(leftVal > 12 && rightVal > 12){
+    dead_ahead(spd);
+  }else if(leftVal > 10 && rightVal > 10){
     if(last == leftTurn){
       turn_left(spd, hard);  
     }else if(last == rightTurn){
@@ -48,6 +56,10 @@ void follow_line(int spd){
     }
   }
   delay(4);
+}
+
+void circle_turn(int spd){
+  turn_left(spd, hard);  
 }
 
 void calibrate_LDR(){
@@ -81,5 +93,4 @@ void calibrate_LDR(){
   Serial.print(leftMin); Serial.print(" "); Serial.print(leftMax); Serial.print("\t");
   Serial.print(centerMin); Serial.print(" "); Serial.print(centerMax); Serial.print("\t");
   Serial.print(rightMin); Serial.print(" "); Serial.print(rightMax); Serial.println();
-  delay(1500);
 }
