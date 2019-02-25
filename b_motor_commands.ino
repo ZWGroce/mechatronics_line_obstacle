@@ -21,7 +21,7 @@ void all_stop(){
 
 void dead_ahead(int spd){
     drive_motor(motorA, forward, .9*spd);
-    drive_motor(motorB, forward, spd);
+    drive_motor(motorB, forward, 1.05*spd);
 }
 
 void dead_astern(int spd){
@@ -31,28 +31,28 @@ void dead_astern(int spd){
 
 void turn_left(int spd, int severity){
   if(severity == 0){
-    drive_motor(motorA, forward, 0.75*spd);
-    drive_motor(motorB, forward, 1.2*spd);
+    drive_motor(motorA, forward, 0.68*spd);
+    drive_motor(motorB, forward, spd);
   }else if(severity == 1){
-    drive_motor(motorA, forward, .5*spd);
+    drive_motor(motorA, forward, .45*spd);
     drive_motor(motorB, forward, spd); 
   }else{
     drive_motor(motorA, 0, 0);
-    drive_motor(motorB, forward, 1.25*spd);
-    delay(8);
+    drive_motor(motorB, forward, spd);
+    //delay(4);
   }
 }
 
 void turn_right(int spd, int severity){
   if(severity == 0){
     drive_motor(motorA, forward, spd);
-    drive_motor(motorB, forward, 0.7*spd);
+    drive_motor(motorB, forward, 0.79*spd);
   }else if(severity == 1){
     drive_motor(motorA, forward, spd);
-    drive_motor(motorB, forward, spd);      
+    drive_motor(motorB, forward, 0.53*spd);      
   }else{
-    drive_motor(motorA, forward, 1.15*spd);
+    drive_motor(motorA, forward, spd);
     drive_motor(motorB, 0, 0);
-    delay(8);     
+    //delay(4);     
   }
 }
