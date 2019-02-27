@@ -16,7 +16,8 @@ void stop_motor(int motor){
 
 void all_stop(){
   drive_motor(motorA, 0, 0);
-  drive_motor(motorB, 0, 0);  
+  drive_motor(motorB, 0, 0);
+  setColor(0, 0, 0);
 }
 
 void dead_ahead(int spd){
@@ -29,30 +30,22 @@ void dead_astern(int spd){
     drive_motor(motorB, backward, spd);
 }
 
-void turn_left(int spd, int severity){
+void turn_left(int spd, int severity = 0){
   if(severity == 0){
-    drive_motor(motorA, forward, 0.68*spd);
+    drive_motor(motorA, forward, 0.7*spd);
     drive_motor(motorB, forward, spd);
-  }else if(severity == 1){
-    drive_motor(motorA, forward, .45*spd);
-    drive_motor(motorB, forward, spd); 
   }else{
-    drive_motor(motorA, 0, 0);
-    drive_motor(motorB, forward, spd);
-    //delay(4);
+    drive_motor(motorA, backward, 0.6*spd);
+    drive_motor(motorB, forward, spd); 
   }
 }
 
-void turn_right(int spd, int severity){
+void turn_right(int spd, int severity = 0){
   if(severity == 0){
     drive_motor(motorA, forward, spd);
-    drive_motor(motorB, forward, 0.79*spd);
-  }else if(severity == 1){
-    drive_motor(motorA, forward, spd);
-    drive_motor(motorB, forward, 0.53*spd);      
+    drive_motor(motorB, forward, 0.7*spd);
   }else{
     drive_motor(motorA, forward, spd);
-    drive_motor(motorB, 0, 0);
-    //delay(4);     
+    drive_motor(motorB, backward, 0.6*spd);      
   }
 }

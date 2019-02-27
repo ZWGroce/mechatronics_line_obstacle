@@ -1,6 +1,8 @@
 //Line Following Functionality
 
 void follow_line(int spd){
+  setColor(0, 0, 255);
+  
   leftVal = analogRead(leftLDR);
   leftVal = map(leftVal, leftMin + 10, leftMax - 10, 20, 0);
   leftVal = constrain(leftVal, 0, 20);
@@ -15,47 +17,33 @@ void follow_line(int spd){
   Serial.print(centerVal); Serial.print("\t");
   Serial.println(rightVal);
 
-  if(leftVal > 5 && leftVal <= 10){
-    Serial.println("LEFT, SOFT");
-    turn_left(spd, soft);
+  if(leftVal > 5 && leftVal < 13){
+    //Serial.println("Go LEFT!");
+    turn_left(30, soft);
     last = leftTurn;
-  }else if(leftVal > 10 && leftVal <= 15){
-    Serial.println("LEFT, MEDIUM");
-    turn_left(spd, medium);
-    last = leftTurn; 
-  }else if(leftVal > 15){
-    Serial.println("LEFT, HARD");
-    turn_left(spd, hard);
-    last = leftTurn; 
-  }else if(rightVal > 5 && rightVal <= 10){
-    Serial.println("RIGHT, SOFT");
-    turn_right(spd, soft);
+  }else if(leftVal > 13){
+    turn_left(50, hard);
+    last = leftTurn;
+    //delay(2);  
+  }else if(rightVal > 5 && rightVal < 13){
+    //Serial.println("Go RIGHT!");
+    turn_right(30, soft);
     last = rightTurn;
-  }else if(rightVal > 10 && rightVal <= 15){
-    Serial.println("RIGHT, MEDIUM");
-    turn_right(spd, medium);
+  }else if(rightVal > 13){
+    turn_right(50, hard);
     last = rightTurn;
-  }else if(rightVal > 15){
-    Serial.println("RIGHT, HARD");
-    turn_right(spd, hard);
-    last = rightTurn;
-  }else if(centerVal > 10){
-    Serial.println("Go STRAIGHT!");
-    dead_ahead(spd);
-  }else if(leftVal > 10 && rightVal > 10){
-    if(last == leftTurn){
-      turn_left(spd, hard);  
-    }else if(last == rightTurn){
-      turn_right(spd, hard);  
-    }
+    //delay(2);  
+  }else if (centerVal > 10){
+    //Serial.println("Go STRAIGHT!");
+    dead_ahead(30); 
   }else{
     if(last == leftTurn){
-      turn_left(spd, hard);  
+      turn_left(50, hard);  
     }else if(last == rightTurn){
-      turn_right(spd, hard);  
+      turn_right(50, hard);  
     }
   }
-  delay(4);
+  delay(2);
 }
 
 void circle_turn(int spd){
@@ -64,6 +52,9 @@ void circle_turn(int spd){
 
 void calibrate_LDR(){
   Serial.println("Beginning Calibration");
+  
+  setColor(255, 0, 0);
+    
   int startTime = millis();
   while((millis()-startTime) < 7000){
     leftVal = analogRead(leftLDR);
@@ -93,4 +84,8 @@ void calibrate_LDR(){
   Serial.print(leftMin); Serial.print(" "); Serial.print(leftMax); Serial.print("\t");
   Serial.print(centerMin); Serial.print(" "); Serial.print(centerMax); Serial.print("\t");
   Serial.print(rightMin); Serial.print(" "); Serial.print(rightMax); Serial.println();
+
+  setColor(0, 255, 0);
+  delay(1000);
+  setColor(0, 0, 0);
 }
