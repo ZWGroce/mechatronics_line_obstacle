@@ -1,0 +1,22 @@
+***********Digitial***********
+2 - dirA
+3 - pwmA
+4 - dirB
+5 - rPin
+6 - gPin
+8 - bPin
+10 - callRight
+11 - pwmB
+12 - callFront
+13 - callLeft
+22 - irPin
+******************************
+
+************Analog************
+A0 - hearRight
+A2 - hearFront
+A3 - hearLeft
+A13 - leftLDR
+A14 - centerLDR
+A15 - rightLDR
+******************************

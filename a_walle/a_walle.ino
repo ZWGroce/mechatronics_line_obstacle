@@ -5,14 +5,14 @@
 //*****Define Variables*****
 
 //IR Stuff
-const int irPin = 6;
+const int irPin = 22;
 IRrecv irrecv(irPin);
 decode_results results;
 unsigned long irVal;
 
 //RGB Parameters
 const int rPin = 5;
-const int gPin = 4;
+const int gPin = 6;
 const int bPin = 8;
 
 //Motor Stuff
@@ -30,6 +30,16 @@ const int motorB = 1;
 #define leftTurn 0
 #define rightTurn 1
 int last;
+
+//UltraSonic Stuff
+const int callLeft = 13; 
+const int callFront = 12; 
+const int callRight = 10;
+const int hearLeft = A3; 
+const int hearFront = A2;
+const int hearRight = A0;
+long t; //Pulse duration
+int x, y, z; //Distance heard
 
 //LDR Stuff
 const int leftLDR = A13;
