@@ -17,23 +17,27 @@ void follow_line(int spd){
   Serial.print(centerVal); Serial.print("\t");
   Serial.println(rightVal);
 
-  if(leftVal > 5 && leftVal < 13){
+  if(leftVal > 3 && leftVal < 15){
     //Serial.println("Go LEFT!");
     turn_left(30, soft);
-    last = leftTurn;
-  }else if(leftVal > 13){
+    lastTurn = leftTurn;
+    lastSeverity = soft;
+  }else if(leftVal > 15){
     turn_left(50, hard);
-    last = leftTurn;
+    lastTurn = leftTurn;
+    lastSeverity = hard;
     //delay(2);  
-  }else if(rightVal > 5 && rightVal < 13){
+  }else if(rightVal > 3 && rightVal < 15){
     //Serial.println("Go RIGHT!");
     turn_right(30, soft);
-    last = rightTurn;
-  }else if(rightVal > 13){
+    lastTurn = rightTurn;
+    lastSeverity = soft;
+  }else if(rightVal > 15){
     turn_right(50, hard);
-    last = rightTurn;
+    lastTurn = rightTurn;
+    lastSeverity = hard;
     //delay(2);  
-  }else if (centerVal > 10){
+  }else if (centerVal > 15){
     //Serial.println("Go STRAIGHT!");
     dead_ahead(30);
   }else{

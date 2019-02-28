@@ -29,7 +29,7 @@ const int motorB = 1;
 #define hard 2
 #define leftTurn 0
 #define rightTurn 1
-int last;
+int lastDir, lastSeverity;
 
 //UltraSonic Stuff
 const int callLeft = 13; 
