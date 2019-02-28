@@ -1,5 +1,7 @@
 void avoid_obstacles (int spd)
 {
+  setColor(255, 0, 255);
+  
   x = distance(callFront,hearFront);
   x = constrain(x,0,60);
   y = distance(callRight,hearRight);

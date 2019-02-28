@@ -34,6 +34,9 @@ void turn_left(int spd, int severity = 0){
   if(severity == 0){
     drive_motor(motorA, forward, 0.7*spd);
     drive_motor(motorB, forward, spd);
+  }else if(severity == 1){
+    drive_motor(motorA, forward, .45*spd);
+    drive_motor(motorB, forward, spd); 
   }else{
     drive_motor(motorA, backward, 0.6*spd);
     drive_motor(motorB, forward, spd); 
@@ -44,6 +47,9 @@ void turn_right(int spd, int severity = 0){
   if(severity == 0){
     drive_motor(motorA, forward, spd);
     drive_motor(motorB, forward, 0.7*spd);
+  }else if(severity == 1){
+    drive_motor(motorA, forward, spd);
+    drive_motor(motorB, forward, 0.53*spd);      
   }else{
     drive_motor(motorA, forward, spd);
     drive_motor(motorB, backward, 0.6*spd);      

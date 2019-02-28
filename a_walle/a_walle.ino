@@ -89,10 +89,8 @@ void loop() {
     follow_line(30);    
   }else if(irVal == 0xFF18E7){  //Turn in circle
     circle_turn(60);    
-  }/*else if(results.value == 0xFF7A85){  //Avoid obstacles
-      
-  }*/else if(irVal == 0xFF02FD){
-    dead_ahead(60);  
+  }else if(results.value == 0xFF7A85){  //Avoid obstacles
+    avoid_obstacles(45);  
   }
 }
 

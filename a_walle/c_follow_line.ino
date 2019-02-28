@@ -47,6 +47,7 @@ void follow_line(int spd){
 }
 
 void circle_turn(int spd){
+  setColor(0, 125, 255);
   turn_left(spd, hard);  
 }
 
