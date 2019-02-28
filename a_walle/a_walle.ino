@@ -62,6 +62,9 @@ void setup() {
   pinMode(rPin, OUTPUT);
   pinMode(gPin, OUTPUT);
   pinMode(bPin, OUTPUT);
+  pinMode(callLeft,OUTPUT);
+  pinMode(callFront,OUTPUT);
+  pinMode(callRight,OUTPUT);
   irrecv.enableIRIn();
   Serial.begin(9600);
 }
