@@ -35,7 +35,7 @@ void follow_line(int spd){
     //delay(2);  
   }else if (centerVal > 10){
     //Serial.println("Go STRAIGHT!");
-    dead_ahead(30); 
+    dead_ahead(30);
   }else{
     if(last == leftTurn){
       turn_left(50, hard);  
@@ -43,7 +43,7 @@ void follow_line(int spd){
       turn_right(50, hard);  
     }
   }
-  delay(2);
+  delay(1);
 }
 
 void circle_turn(int spd){

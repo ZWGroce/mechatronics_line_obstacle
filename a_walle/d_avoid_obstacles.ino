@@ -1,7 +1,5 @@
 void avoid_obstacles (int spd)
-{
-  setColor(255, 0, 255);
-  
+{  
   x = distance(callFront,hearFront);
   x = constrain(x,0,60);
   y = distance(callRight,hearRight);
@@ -9,36 +7,42 @@ void avoid_obstacles (int spd)
   z = distance(callLeft,hearLeft);
   z = constrain (z,0,60);
   Serial.print(z);Serial.print("\t");Serial.print(x);Serial.print("\t");Serial.println(y);
-  if (x < 20) 
+  if (x < 30) 
     {
       all_stop();
-      delay(500);
+      setColor(255, 0, 0);
+      delay(5000);
       dead_astern(45);
       delay(1200);
       turn_left(45,medium);
       delay(1000);
     }
 
-  if (y < 20) 
+  if (y < 30) 
     {
       all_stop();
-      delay(500);
+      setColor(255, 0, 0);
+      delay(5000);
       dead_astern(45);
       delay(1200);
       turn_left(45,medium);
       delay(1200);
     }  
-    if (z < 20) 
+    if (z < 30) 
     {
       all_stop();
-      delay(500);
+      setColor(255, 0, 0);
+      delay(5000);
       dead_astern(45);
       delay(1200);
       turn_right(45,medium);
       delay(1200);
     }
     else
-    {dead_ahead(45);}
+    {
+      setColor(0, 255, 0);
+      dead_ahead(45);
+    }
 }
 
 //Functions
