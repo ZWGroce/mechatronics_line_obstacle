@@ -7,7 +7,7 @@ void avoid_obstacles (int spd)
   z = distance(callLeft,hearLeft);     //defines z as distance measured by front sensor
   z = constrain (z,0,60);              //limits the measured distance to 60cm
  
-  if (x < 30)                    //if distance from left sensor < 30cm
+  if (x < 30)                    //if distance from front sensor < 30cm
     {
       all_stop();                   //stop moving
       setColor(255, 0, 0);          //red light

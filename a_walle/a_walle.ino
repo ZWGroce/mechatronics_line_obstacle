@@ -1,4 +1,7 @@
-//Task: Control a simple robot for line following and obstacle avoidance using an IR remote
+/*Task: Control a simple robot for line following and obstacle avoidance using an IR remote
+ * Created by Nate Abramson and Zach Groce
+ * Released 01 March 2019
+ */
  
 #include <IRremote.h>  //Imports IR remote library
 #include <LiquidCrystal.h> // Import LCD library
