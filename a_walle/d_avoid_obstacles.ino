@@ -11,8 +11,8 @@ void avoid_obstacles (int spd)
     {
       all_stop();                   //stop moving
       setColor(255, 0, 0);          //red light
-      lcd.print("obstacle at: ");   //display distance from obstacle
-      lcd.print(x);
+      //lcd.print("obstacle at: ");   //display distance from obstacle
+      //lcd.print(x);
       delay(5000);                  //5 second pause  
       dead_astern(45);              //reverse for 1.2 sec
       delay(1200);
@@ -24,8 +24,8 @@ void avoid_obstacles (int spd)
     {
       all_stop();                   //stop moving
       setColor(255, 0, 0);          //red light
-      lcd.print("obstacle at: ");   //display distance from obstacle
-      lcd.print(y);
+      //lcd.print("obstacle at: ");   //display distance from obstacle
+      //lcd.print(y);
       delay(5000);                  //5 sec pause
       dead_astern(45);              //reverse 1.2 seconds
       delay(1200);
@@ -36,8 +36,8 @@ void avoid_obstacles (int spd)
     {
       all_stop();                 //stop moving
       setColor(255, 0, 0);        //red light
-      lcd.print("obstacle at: "); //print obstacle distance
-      lcd.print(z);
+      //lcd.print("obstacle at: "); //print obstacle distance
+      //lcd.print(z);
       delay(5000);                //5 second pause
       dead_astern(45);            //reverse for 1.2 sec
       delay(1200);

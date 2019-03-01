@@ -4,12 +4,12 @@
  */
  
 #include <IRremote.h>  //Imports IR remote library
-#include <LiquidCrystal.h> // Import LCD library
+//#include <LiquidCrystal.h> // Import LCD library
 //*****Define Variables*****
 
 //*****LCD Stuff*****
-const int rs = 39, en = 37, d4 = 35, d5 = 33, d6 = 31, d7 = 29; //defines LCD-used pins
-LiquidCrystal lcd(rs,en,d4,d5,d6,d7); //tells LCD how to name the pins
+//const int rs = 39, en = 37, d4 = 35, d5 = 33, d6 = 31, d7 = 29; //defines LCD-used pins
+//LiquidCrystal lcd(rs,en,d4,d5,d6,d7); //tells LCD how to name the pins
 
 //*****IR Definitions*****
 const int irPin = 22;  //Sets the IR receiver to pin 22
@@ -36,7 +36,7 @@ const int motorB = 1;  //Creates a variable for the right motr
 #define hard 2  //Defines the word hard as 2
 #define leftTurn 0  //Defines the word left turn as 0
 #define rightTurn 1  //Defines the word right turn as 1
-int lastDir, lastSeverity;  //Creates variables to track the last direction (left or right) and last turn severity (soft, medium, or hard)
+int lastTurn, lastSeverity;  //Creates variables to track the last direction (left or right) and last turn severity (soft, medium, or hard)
 
 //*****UltraSonic Stuff*****
 const int callLeft = 13;  //Sets the left ultrasonic output to pin 13
@@ -72,13 +72,13 @@ void setup() {
   pinMode(callLeft,OUTPUT);  //Sets the pin to output
   pinMode(callFront,OUTPUT);  //Sets the pin to output
   pinMode(callRight,OUTPUT);  //Sets the pin to output
-    pinMode(39,OUTPUT); // sets pin to output
-    pinMode(37,OUTPUT);  //Sets the pin to output
-    pinMode(35,OUTPUT);  //Sets the pin to output
-    pinMode(33,OUTPUT);  //Sets the pin to output
-    pinMode(31,OUTPUT);  //Sets the pin to output
-    pinMode(29,OUTPUT);  //Sets the pin to output
-    lcd.begin(16,2); // tells the LCD how many spaces there are
+  // pinMode(39,OUTPUT); // sets pin to output
+  // pinMode(37,OUTPUT);  //Sets the pin to output
+  //pinMode(35,OUTPUT);  //Sets the pin to output
+  //pinMode(33,OUTPUT);  //Sets the pin to output
+  //pinMode(31,OUTPUT);  //Sets the pin to output
+  //pinMode(29,OUTPUT);  //Sets the pin to output
+  //lcd.begin(16,2); // tells the LCD how many spaces there are
   irrecv.enableIRIn();  //Starts the IR receiver for remote input
 }
 

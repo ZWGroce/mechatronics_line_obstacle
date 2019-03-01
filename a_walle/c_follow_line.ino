@@ -34,9 +34,9 @@ void follow_line(int spd){  //Creates a function to perform line following
   }else if (centerVal > 15){  //Triggers if the robot is centered over the line
     dead_ahead(30);  //Drives the robot straight forward
   }else{  //Triggers if none of the above conditions are met (likely if the robot went totally off the line)
-    if(last == leftTurn){  //Continues turning left if the robot overshot but was turning left last
+    if(lastTurn == leftTurn){  //Continues turning left if the robot overshot but was turning left last
       turn_left(50, hard);  //Turns the robot to the left, hard
-    }else if(last == rightTurn){  //continues turning right if the robot overshot but was turning right last
+    }else if(lastTurn == rightTurn){  //continues turning right if the robot overshot but was turning right last
       turn_right(50, hard);    //Turns the robot to the right, hard
     }
   }
