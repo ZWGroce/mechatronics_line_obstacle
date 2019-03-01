@@ -15,19 +15,19 @@ void follow_line(int spd){  //Creates a function to perform line following
   rightVal = constrain(rightVal, 0, 20);  //Ensures the right LDR falls between 0 and 20
 
   //Logic loop for line following
-  if(leftVal > 3 && leftVal < 15){  //Triggers if the robot begins to veer to the right
+  if(leftVal > 5 && leftVal < 13){  //Triggers if the robot begins to veer to the right
     turn_left(30, soft);  //Turns the robot to the left, softly
     lastTurn = leftTurn;  //Tracks the most recent course correction
     lastSeverity = soft;  //Tracks the most recent turn "hardness" ie severity
-  }else if(leftVal > 15){  //Triggers if the robot is far to the right
+  }else if(leftVal > 13){  //Triggers if the robot is far to the right
     turn_left(50, hard);  //Turns the robot to the left, hard
     lastTurn = leftTurn;  //Tracks the most recent course correction
     lastSeverity = hard;  //Tracks the most recent turn severity
-  }else if(rightVal > 3 && rightVal < 15){  //Triggers if the robot begins to veer to the left
+  }else if(rightVal > 5 && rightVal < 13){  //Triggers if the robot begins to veer to the left
     turn_right(30, soft);  //Turns the robot to the right, softly
     lastTurn = rightTurn;  //Tracks the most recent course correction
     lastSeverity = soft;  //Tracks the most recent turn severity
-  }else if(rightVal > 15){  //Triggers if the robot is far to the left
+  }else if(rightVal > 13){  //Triggers if the robot is far to the left
     turn_right(50, hard);  //Turns the robot to the right, hard
     lastTurn = rightTurn;  //Tracks the most recent course correction
     lastSeverity = hard;  //Tracks the most recent turn severity 
@@ -40,7 +40,7 @@ void follow_line(int spd){  //Creates a function to perform line following
       turn_right(50, hard);    //Turns the robot to the right, hard
     }
   }
-  delay(1);  //Waits one millisecond
+  delay(2);  //Waits one millisecond
 }
 
 void circle_turn(int spd){  //Function to spin in a circle (deliverable)
